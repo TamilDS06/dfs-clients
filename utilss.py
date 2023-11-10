@@ -7,8 +7,8 @@ from flask_bcrypt import Bcrypt
 
 current_script_directory = os.path.dirname(__file__)
 project_root = os.path.abspath(os.path.join(current_script_directory, '..'))
-METADATA_CSV_PATH= project_root+"\\dfs_python_flask_aws\\csv_files\\FileMetaData.csv"
-USERS_CSV_PATH = project_root+"\\dfs_python_flask_aws\\csv_files\\user_data.csv"
+METADATA_CSV_PATH= project_root+"/dfs_python_flask_aws/csv_files/FileMetaData.csv"
+USERS_CSV_PATH = project_root+"/dfs_python_flask_aws/csv_files/user_data.csv"
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 AWS_REGION = os.environ.get("AWS_REGION")
