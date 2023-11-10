@@ -97,7 +97,7 @@ def register():
             return redirect('/login')
 
     return render_template('register.html', messages=get_flashed_messages())
-    # return render_template('register.html')
+    # return render_template('register.html')#
 
 @app.route('/download/<object_key>')
 def download(object_key):
