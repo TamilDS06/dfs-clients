@@ -1,6 +1,4 @@
 flask
 boto3
-mimetypes
-atexit
 flask_bcrypt
 flask_sqlalchemy
