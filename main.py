@@ -5,12 +5,13 @@ import mimetypes
 import atexit
 from constant import Constant
 from dbmodels import app, User, FileMetadata, db, bcrypt
+from dotenv import dotenv_values
 
-
-AWS_ACCESS_KEY_ID = Constant.AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY = Constant.AWS_SECRET_ACCESS_KEY
-AWS_REGION = Constant.AWS_REGION  
-S3_BUCKET_NAME = Constant.S3_BUCKET_NAME
+dot_env_values = dotenv_values()
+AWS_ACCESS_KEY_ID = dot_env_values['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = dot_env_values["AWS_SECRET_ACCESS_KEY"]
+AWS_REGION = dot_env_values["AWS_REGION"]
+S3_BUCKET_NAME = dot_env_values["S3_BUCKET_NAME"]
 
 s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY, region_name=AWS_REGION)
 
@@ -138,4 +139,4 @@ def logout_on_shutdown():
 atexit.register(logout_on_shutdown)
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=8000, debug=True)
+    app.run(host=dot_env_values['host'], port=dot_env_values['port'], debug=dot_env_values['debug'])
