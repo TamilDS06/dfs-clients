@@ -1,4 +1,5 @@
-flask
+Flask==1.1.4
+gunicorn==20.1.0
 boto3
 flask_bcrypt
 flask_sqlalchemy
