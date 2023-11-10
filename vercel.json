@@ -1,15 +1,19 @@
 {
-    "version" : 2,
-    "builds":[
-        {
-            "src":"./main.py",
-            "use":"@vercel/python"
-        }
+    "functions": {
+      "api": {
+        "runtime": "vercel-python@0.32.0",
+        "handler": "main.app",
+        "includeFiles": ["main.py", "requirements.txt"],
+        "excludeFiles": ["node_modules/**"]
+      }
+    },
+    "routes": [
+      { "src": "/(.*)", "dest": "/main.py" }
     ],
-    "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"/"
-        }
-    ]
-}
+    "builds": {
+      "api/**/*.py": {
+        "use": "@vercel/python"
+      }
+    }
+  }
+  
