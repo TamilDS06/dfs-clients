@@ -138,5 +138,6 @@ def logout_on_shutdown():
 
 atexit.register(logout_on_shutdown)
 
+
 if __name__ == '__main__':
     app.run(host=dot_env_values['host'], port=dot_env_values['port'], debug=dot_env_values['debug'])
