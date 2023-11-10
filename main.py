@@ -8,7 +8,7 @@ from dbmodels import app, User, FileMetadata, db, bcrypt
 from dotenv import dotenv_values
 
 dot_env_values = dotenv_values()
-AWS_ACCESS_KEY_ID = dot_env_values['AWS_ACCESS_KEY_ID']
+AWS_ACCESS_KEY_ID = dot_env_values["AWS_ACCESS_KEY_ID"]
 AWS_SECRET_ACCESS_KEY = dot_env_values["AWS_SECRET_ACCESS_KEY"]
 AWS_REGION = dot_env_values["AWS_REGION"]
 S3_BUCKET_NAME = dot_env_values["S3_BUCKET_NAME"]
