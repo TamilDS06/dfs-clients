@@ -11,6 +11,9 @@ AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 AWS_REGION = os.environ.get("AWS_REGION")
 S3_BUCKET_NAME = os.environ.get("S3_BUCKET_NAME")
+HOST = os.environ.get("HOST")
+PORT = os.environ.get("PORT")
+DEBUG = os.environ.get("DEBUG")
 
 s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY, region_name=AWS_REGION)
 
@@ -139,4 +142,4 @@ atexit.register(logout_on_shutdown)
 
 
 if __name__ == '__main__':
-    app.run(host=dot_env_values['host'], port=dot_env_values['port'], debug=dot_env_values['debug'])
+    app.run(host=HOST, port=PORT, debug=DEBUG)
