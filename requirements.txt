@@ -4,3 +4,4 @@ flask_bcrypt
 flask_sqlalchemy
 python-dotenv
 pandas
+gunicorn
