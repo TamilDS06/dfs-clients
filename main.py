@@ -3,7 +3,7 @@ import boto3
 import os
 import mimetypes
 import atexit
-from constant import Constant
+# from constant import Constant
 from dbmodels import app, User, FileMetadata, db, bcrypt
 from dotenv import dotenv_values
 
