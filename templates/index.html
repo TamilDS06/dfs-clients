@@ -1,52 +1,3 @@
-<!--<!DOCTYPE html>
-<html>
-<head>
-    <title>AWS S3 File Management</title>
-</head>
-<body>
-    <h1>AWS S3 File Management</h1>
-
-    <h2>List Files in S3 Bucket</h2>
-    <form action="/list_files" method="GET">
-        <input type="submit" value="List Files">
-    </form>
-
-    <h2>Download File from S3 Bucket</h2>
-    <form action="/download" method="GET">
-        <label for="file_name">Enter the file name to download:</label>
-        <input type="text" name="file_name" id="file_name" required>
-        <input type="submit" value="Download File">
-    </form>
-
-    <h2>Upload File to S3 Bucket</h2>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <label for="file_upload">Select a file to upload:</label>
-        <input type="file" name="file" id="file_upload" accept=".pdf,.txt,.csv" required>
-        <input type="submit" value="Upload File">
-    </form>
-
-    <h2>Delete File from S3 Bucket</h2>
-    <form action="/delete" method="POST">
-        <label for="delete_file_name">Enter the file name to delete:</label>
-        <input type="text" name="file_name" id="delete_file_name" required>
-        <input type="submit" value="Delete File">
-    </form>
-
-    <h2>Files in S3 Bucket:</h2>
-    <ul>
-        {% for file in files %}
-            <li>
-                {{ file }}
-                [<a href="/download?file_name={{ file }}" target="_blank">Download</a>]
-                [<a href="/delete?file_name={{ file }}">Delete</a>]
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
--->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,13 +22,13 @@
    <ul>
        {% for metadata in file_metadata_list %}
            <li>
-               File Name: {{ metadata.file_name }}<br>
-               File Type: {{ metadata.file_type }}<br>
-               URL: <a href="{{ metadata.url_link_s3 }}" target="_blank">{{ metadata.url_link_s3 }}</a><br>
-               Created Time: {{ metadata.created_time }}<br>
-               Updated Time: {{ metadata.updated_time }}<br>
-               <a href="/download/{{ metadata.file_name }}" download>Download</a>
-               <a href="/delete/{{ metadata.file_name }}">Delete</a>
+               File Name: {{ metadata[1] }}<br>
+               File Type: {{ metadata[2] }}<br>
+               URL: <a href="{{ metadata.url_link_s3 }}" target="_blank">{{ metadata[3] }}</a><br>
+               Created Time: {{ metadata[4] }}<br>
+               Updated Time: {{ metadata[5] }}<br>
+               <a href="/download/{{ metadata[1] }}" download>Download</a>
+               <a href="/delete/{{ metadata[1] }}">Delete</a>
            </li>
        {% endfor %}
    </ul>
