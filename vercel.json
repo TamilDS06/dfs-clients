@@ -1,0 +1,14 @@
+{
+    "builds":[
+        {
+            "src":"DFS_PYTHON_FLASK_AWS/main.py",
+            "use":"@vercel/python"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest":"DFS_PYTHON_FLASK_AWS/main.py"
+        }
+    ]
+}
